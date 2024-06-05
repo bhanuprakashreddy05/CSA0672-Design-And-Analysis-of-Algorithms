@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+void nonRecursiveAlgorithm(int n) {
+    int sum = 0;
+    for (int i = 1; i <= n; i++) {
+        sum += i;
+    }
+    printf("Sum of numbers from 1 to %d using non-recursive algorithm: %d\n", n, sum);
+}
+
+int recursiveAlgorithm(int n) {
+    if (n == 0) {
+        return 0;
+    } else {
+        return n + recursiveAlgorithm(n - 1);
+    }
+}
+
+int main() {
+    int number = 5;
+
+    nonRecursiveAlgorithm(number);
+
+    int sum = recursiveAlgorithm(number);
+    printf("Sum of numbers from 1 to %d using recursive algorithm: %d\n", number, sum);
+
+    return 0;
+}
