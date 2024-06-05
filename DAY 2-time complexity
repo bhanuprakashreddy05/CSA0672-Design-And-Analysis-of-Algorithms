@@ -1,0 +1,52 @@
+#include <stdio.h>
+
+
+void constantTimeExample() {
+    int a = 10;
+    int b = 20;
+    int sum = a + b;
+    printf("O(1) Example: Sum = %d\n", sum);
+}
+
+void linearTimeExample(int n) {
+    printf("O(n) Example: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", i);
+    }
+    printf("\n");
+}
+
+void quadraticTimeExample(int n) {
+    printf("O(n^2) Example:\n");
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("(%d, %d) ", i, j);
+        }
+        printf("\n");
+    }
+}
+
+void logarithmicTimeExample(int n) {
+    printf("O(log n) Example: ");
+    for (int i = 1; i < n; i *= 2) {
+        printf("%d ", i);
+    }
+    printf("\n");
+}
+
+int main() {
+    int n;
+
+    printf("Enter an integer n: ");
+    scanf("%d", &n);
+
+    constantTimeExample();
+
+    linearTimeExample(n);
+
+    quadraticTimeExample(n);
+
+    logarithmicTimeExample(n);
+
+    return 0;
+}
