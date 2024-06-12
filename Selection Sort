@@ -1,0 +1,23 @@
+def recursive_selection_sort(arr, n=None, index=0):
+    if n is None:
+        n = len(arr)
+        
+    if index == n:
+        return arr
+    
+    min_idx = index
+    for j in range(index + 1, n):
+        if arr[j] < arr[min_idx]:
+            min_idx = j
+    
+    arr[index], arr[min_idx] = arr[min_idx], arr[index]
+    
+    return recursive_selection_sort(arr, n, index + 1)
+
+def get_user_input_and_sort():
+    user_input = input("Enter numbers separated by spaces: ")
+    arr = list(map(int, user_input.split()))
+    sorted_arr = recursive_selection_sort(arr)
+    print("Sorted array:", sorted_arr)
+
+get_user_input_and_sort()
